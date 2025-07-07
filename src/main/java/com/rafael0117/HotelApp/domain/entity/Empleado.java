@@ -1,21 +1,32 @@
 package com.rafael0117.HotelApp.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.rafael0117.HotelApp.domain.enums.Cargo;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
+@SuperBuilder
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String cargo;
+    private String dni;
+    private String telefono;
+    private BigDecimal salario;
+    @Column(unique = true)
     private String usuario;
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Cargo cargos;
+    private LocalDate fechaIngreso;
 }
