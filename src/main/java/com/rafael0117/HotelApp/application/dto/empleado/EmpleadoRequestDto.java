@@ -4,13 +4,17 @@ import com.rafael0117.HotelApp.domain.enums.Cargo;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 @Data
 @SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 public class EmpleadoRequestDto {
     private String nombre;
     private String dni;
