@@ -2,7 +2,9 @@ package com.rafael0117.HotelApp.domain.entity;
 
 import com.rafael0117.HotelApp.domain.enums.Cargo;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
@@ -14,6 +16,8 @@ import java.time.LocalDate;
 @Setter
 @SuperBuilder
 @Inheritance(strategy = InheritanceType.JOINED)
+@NoArgsConstructor
+@AllArgsConstructor
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
