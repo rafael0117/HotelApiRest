@@ -1,10 +1,10 @@
 package com.rafael0117.HotelApp.domain.entity;
 
 
+import com.rafael0117.HotelApp.domain.enums.Cargo;
+import com.rafael0117.HotelApp.domain.enums.Tipo;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
@@ -13,6 +13,8 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Habitacion {
     @Id
@@ -21,5 +23,7 @@ public abstract class Habitacion {
     private String numero;
     private BigDecimal precio;
     private boolean disponible;
+    @Enumerated(EnumType.STRING)
+    private Tipo tipo;
 
 }
