@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/habitacion")
 public class HabitacionController {
-    private IHabitacionService service;
+    private final IHabitacionService service;
 
     @GetMapping
     List<HabitacionResponseDto> listar(){

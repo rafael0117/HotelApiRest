@@ -26,6 +26,7 @@ public class HabitacionMapper {
     }
     public SuiteResponseDto getDtoSuite(Suite suite){
         return SuiteResponseDto.builder()
+                .id(suite.getId())
                 .numero(suite.getNumero())
                 .precio(suite.getPrecio())
                 .disponible(suite.isDisponible())
@@ -36,6 +37,7 @@ public class HabitacionMapper {
     }
     public DobleResponseDto getDtoDoble(Doble doble){
         return DobleResponseDto.builder()
+                .id(doble.getId())
                 .numero(doble.getNumero())
                 .precio(doble.getPrecio())
                 .disponible(doble.isDisponible())
@@ -58,6 +60,7 @@ public class HabitacionMapper {
                 .numero(requestDto.getNumero())
                 .precio(requestDto.getPrecio())
                 .disponible(requestDto.isDisponible())
+                .tipo(requestDto.getTipo())
                 .jacuzzi(requestDto.isJacuzzi())
                 .cantidadAmbientes(requestDto.getCantidadAmbientes())
                 .build();
@@ -67,6 +70,7 @@ public class HabitacionMapper {
                 .numero(requestDto.getNumero())
                 .precio(requestDto.getPrecio())
                 .disponible(requestDto.isDisponible())
+                .tipo(requestDto.getTipo())
                 .incluyeDesayuno(requestDto.isIncluyeDesayuno())
                 .build();
     }
@@ -75,6 +79,7 @@ public class HabitacionMapper {
                 .numero(requestDto.getNumero())
                 .precio(requestDto.getPrecio())
                 .disponible(requestDto.isDisponible())
+                .tipo(requestDto.getTipo())
                 .camaSeparadas(requestDto.isCamaSeparadas())
                 .build();
     }
