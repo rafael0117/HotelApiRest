@@ -6,6 +6,8 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
+
 @Data
 @Builder
 public class CocineroResponseDto {
@@ -16,7 +18,7 @@ public class CocineroResponseDto {
     private BigDecimal salario;
     private String usuario;
     private String password;
-    private Cargo cargos;
+    private Set<Cargo> cargos;
     private LocalDate fechaIngreso;
     private String especialidad;
 }

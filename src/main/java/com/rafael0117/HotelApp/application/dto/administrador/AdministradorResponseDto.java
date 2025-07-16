@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @SuperBuilder
@@ -17,7 +18,7 @@ public class AdministradorResponseDto {
     private BigDecimal salario;
     private String usuario;
     private String password;
-    private Cargo cargos;
+    private Set<Cargo> cargos;
     private LocalDate fechaIngreso;
     private String nivelAcceso;
 }

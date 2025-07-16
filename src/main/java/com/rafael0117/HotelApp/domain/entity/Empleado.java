@@ -10,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -30,7 +31,13 @@ public class Empleado {
     private String usuario;
     private String password;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+            name = "empleado_cargos",
+            joinColumns = @JoinColumn(name = "empleado_id")
+    )
+    @Column(name = "cargo")
     @Enumerated(EnumType.STRING)
-    private Cargo cargos;
+    private Set<Cargo> cargos;
     private LocalDate fechaIngreso;
 }
