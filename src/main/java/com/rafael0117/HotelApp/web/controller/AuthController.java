@@ -1,5 +1,7 @@
 package com.rafael0117.HotelApp.web.controller;
 
+import com.rafael0117.HotelApp.application.dto.administrador.AdministradorRequestDto;
+import com.rafael0117.HotelApp.application.dto.administrador.AdministradorResponseDto;
 import com.rafael0117.HotelApp.application.dto.login.LoginRequestDto;
 import com.rafael0117.HotelApp.application.dto.login.LoginResponseDto;
 import com.rafael0117.HotelApp.application.service.IAuthService;
@@ -14,8 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
     private final IAuthService service;
-    @PostMapping
+    @PostMapping("/login")
     LoginResponseDto authenticate(@RequestBody LoginRequestDto loginRequest){
         return service.authenticate(loginRequest);
+    }
+    @PostMapping("/register")
+    AdministradorResponseDto register(@RequestBody AdministradorRequestDto request){
+        return service.register(request);
     }
 }
