@@ -1,6 +1,7 @@
 package com.rafael0117.HotelApp.application.dto.administrador;
 
 import com.rafael0117.HotelApp.application.dto.empleado.EmpleadoRequestDto;
+import com.rafael0117.HotelApp.domain.enums.NivelAcceso;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,5 +13,5 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdministradorRequestDto extends EmpleadoRequestDto {
-    private String nivelAcceso;
+    private NivelAcceso nivelAcceso;
 }

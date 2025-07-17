@@ -1,6 +1,7 @@
 package com.rafael0117.HotelApp.application.dto.empleado;
 
 import com.rafael0117.HotelApp.domain.enums.Cargo;
+import com.rafael0117.HotelApp.domain.enums.NivelAcceso;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -24,7 +25,7 @@ public class EmpleadoResponseDto {
     private Set<Cargo> cargos;
     private LocalDate fechaIngreso;
     //Administrador
-    private String nivelAcceso;
+    private NivelAcceso nivelAcceso;
     //Cocinero
     private String especialidad;
     //Mantenimiento

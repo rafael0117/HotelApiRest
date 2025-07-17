@@ -1,6 +1,9 @@
 package com.rafael0117.HotelApp.domain.entity;
 
+import com.rafael0117.HotelApp.domain.enums.NivelAcceso;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -12,5 +15,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Administrador extends Empleado{
-    private String nivelAcceso;
+    @Enumerated(EnumType.STRING)
+    private NivelAcceso nivelAcceso;
+
 }

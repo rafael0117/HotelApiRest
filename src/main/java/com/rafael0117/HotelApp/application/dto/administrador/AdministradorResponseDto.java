@@ -1,6 +1,7 @@
 package com.rafael0117.HotelApp.application.dto.administrador;
 
 import com.rafael0117.HotelApp.domain.enums.Cargo;
+import com.rafael0117.HotelApp.domain.enums.NivelAcceso;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
@@ -20,5 +21,5 @@ public class AdministradorResponseDto {
     private String password;
     private Set<Cargo> cargos;
     private LocalDate fechaIngreso;
-    private String nivelAcceso;
+    private NivelAcceso nivelAcceso;
 }
