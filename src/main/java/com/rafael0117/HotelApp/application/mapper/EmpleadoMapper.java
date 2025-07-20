@@ -4,10 +4,7 @@ import com.rafael0117.HotelApp.application.dto.administrador.AdministradorReques
 import com.rafael0117.HotelApp.application.dto.administrador.AdministradorResponseDto;
 import com.rafael0117.HotelApp.application.dto.cocinero.CocineroRequestDto;
 import com.rafael0117.HotelApp.application.dto.cocinero.CocineroResponseDto;
-import com.rafael0117.HotelApp.application.dto.empleado.EmpleadoRequestDto;
 import com.rafael0117.HotelApp.application.dto.empleado.EmpleadoResponseDto;
-import com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoRequestDto;
-import com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoResponseDto;
 import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaRequestDto;
 import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaResponseDto;
 import com.rafael0117.HotelApp.application.dto.recepcionista.RecepcionistaRequestDto;
@@ -72,8 +69,8 @@ public class EmpleadoMapper {
                 .especialidad(cocinero.getEspecialidad())
                 .build();
     }
-    public MantenimientoResponseDto getDtoMantenimiento(Mantenimiento mantenimiento){
-        return MantenimientoResponseDto.builder()
+    public com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoResponseDto getDtoMantenimiento(Mantenimiento mantenimiento){
+        return com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoResponseDto.builder()
                 .id(mantenimiento.getId())
                 .nombre(mantenimiento.getNombre())
                 .dni(mantenimiento.getDni())
@@ -142,7 +139,7 @@ public class EmpleadoMapper {
                 .especialidad(requestDto.getEspecialidad())
                 .build();
     }
-    public Mantenimiento getEntityMantenimiento(MantenimientoRequestDto requestDto){
+    public Mantenimiento getEntityMantenimiento(com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoRequestDto requestDto){
         return Mantenimiento.builder()
                 .nombre(requestDto.getNombre())
                 .dni(requestDto.getDni())
