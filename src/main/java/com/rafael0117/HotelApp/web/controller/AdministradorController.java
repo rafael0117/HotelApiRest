@@ -20,7 +20,7 @@ import java.util.List;
 public class AdministradorController {
     private final IAdministradorService service;
     @GetMapping
-    public ResponseEntity<List<EmpleadoResponseDto>> listar() {
+    public ResponseEntity<List<AdministradorResponseDto>> listar() {
         return ResponseEntity.ok(service.listar());
     }
 
@@ -43,7 +43,7 @@ public class AdministradorController {
 
     // ✅ Buscar empleado por ID
     @GetMapping("/{id}")
-    public ResponseEntity<EmpleadoResponseDto> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<AdministradorResponseDto> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 }

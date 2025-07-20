@@ -3,7 +3,9 @@ package com.rafael0117.HotelApp.web.controller;
 import com.rafael0117.HotelApp.application.dto.empleado.EmpleadoResponseDto;
 import com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoRequestDto;
 import com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoResponseDto;
-import com.rafael0117.HotelApp.application.service.IEmpleadoService;
+import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaRequestDto;
+import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaResponseDto;
+import com.rafael0117.HotelApp.application.service.IMantenimientoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,30 +15,31 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/mantenimiento")
 public class MantenimientoController {
-    private final IEmpleadoService empleadoService;
+    private final IMantenimientoService service;
     @GetMapping
-    public ResponseEntity<List<EmpleadoResponseDto>> listar() {
-        return ResponseEntity.ok(empleadoService.listar());
+    public ResponseEntity<List<MantenimientoResponseDto>> listar() {
+        return ResponseEntity.ok(service.listar());
     }
     @PostMapping
     public MantenimientoResponseDto guardarMantenimiento(@RequestBody MantenimientoRequestDto dto) {
-        return empleadoService.guardarMantenimiento(dto);
+        return service.guardarMantenimiento(dto);
     }
     @PutMapping("/{id}")
     public MantenimientoResponseDto editarMantenimiento(@PathVariable Long id, @RequestBody MantenimientoRequestDto dto) {
-        return empleadoService.editarMantenimiento(id, dto);
+        return service.editarMantenimiento(id, dto);
     }
+
     // ✅ Eliminar un empleado
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        empleadoService.eliminar(id);
+        service.eliminar(id);
         return ResponseEntity.noContent().build();
     }
 
     // ✅ Buscar empleado por ID
     @GetMapping("/{id}")
-    public ResponseEntity<EmpleadoResponseDto> buscarPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(empleadoService.buscarPorId(id));
+    public ResponseEntity<MantenimientoResponseDto> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.buscarPorId(id));
     }
 
 }
