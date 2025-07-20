@@ -1,13 +1,8 @@
 package com.rafael0117.HotelApp.application.service.Impl;
 
-import com.rafael0117.HotelApp.application.dto.administrador.AdministradorRequestDto;
-import com.rafael0117.HotelApp.application.dto.administrador.AdministradorResponseDto;
 import com.rafael0117.HotelApp.application.dto.cocinero.CocineroRequestDto;
 import com.rafael0117.HotelApp.application.dto.cocinero.CocineroResponseDto;
-import com.rafael0117.HotelApp.application.dto.empleado.EmpleadoRequestDto;
 import com.rafael0117.HotelApp.application.dto.empleado.EmpleadoResponseDto;
-import com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoRequestDto;
-import com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoResponseDto;
 import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaRequestDto;
 import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaResponseDto;
 import com.rafael0117.HotelApp.application.dto.recepcionista.RecepcionistaRequestDto;
@@ -16,7 +11,6 @@ import com.rafael0117.HotelApp.application.mapper.EmpleadoMapper;
 import com.rafael0117.HotelApp.application.service.IEmpleadoService;
 import com.rafael0117.HotelApp.domain.entity.*;
 import com.rafael0117.HotelApp.domain.repository.IEmpleadoRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -33,12 +27,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         return repository.findAll().stream().map(mapper::getDtoEmpleado).toList();
     }
 
-    @Override
-    public AdministradorResponseDto guardarAdministrador(AdministradorRequestDto dto) {
-        Administrador admin = mapper.getEntityAdministrador(dto);
-        Administrador guardado = repository.save(admin);
-        return mapper.getDtoAdministrador(guardado);
-    }
+
 
     @Override
     public CocineroResponseDto guardarCocinero(CocineroRequestDto dto) {
@@ -48,7 +37,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     }
 
     @Override
-    public MantenimientoResponseDto guardarMantenimiento(MantenimientoRequestDto dto) {
+    public com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoResponseDto guardarMantenimiento(com.rafael0117.HotelApp.application.dto.mantenimiento.MantenimientoRequestDto dto) {
         Mantenimiento mantenimiento = mapper.getEntityMantenimiento(dto);
         Mantenimiento guardado = repository.save(mantenimiento);
         return mapper.getDtoMantenimiento(guardado);
@@ -68,14 +57,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         return mapper.getDtoRecepcionista(guardado);
     }
 
-    @Override
-    public AdministradorResponseDto editarAdministrador(Long id, AdministradorRequestDto dto) {
-        repository.findById(id).orElseThrow(() -> new RuntimeException("No se encontró el administrador con ID: " + id));
-        Administrador admin = mapper.getEntityAdministrador(dto);
-        admin.setId(id);
-        Administrador actualizado = repository.save(admin);
-        return mapper.getDtoAdministrador(actualizado);
-    }
+
 
     @Override
     public CocineroResponseDto editarCocinero(Long id, CocineroRequestDto dto) {
@@ -86,14 +68,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         return mapper.getDtoCocinero(actualizado);
     }
 
-    @Override
-    public MantenimientoResponseDto editarMantenimiento(Long id, MantenimientoRequestDto dto) {
-        repository.findById(id).orElseThrow(() -> new RuntimeException("No se encontró mantenimiento con ID: " + id));
-        Mantenimiento mantenimiento = mapper.getEntityMantenimiento(dto);
-        mantenimiento.setId(id);
-        Mantenimiento actualizado = repository.save(mantenimiento);
-        return mapper.getDtoMantenimiento(actualizado);
-    }
+
 
     @Override
     public PersonalLimpiezaResponseDto editarPersonalLimpieza(Long id, PersonalLimpiezaRequestDto dto) {
@@ -122,10 +97,5 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         repository.deleteById(id);
     }
 
-    @Override
-    public EmpleadoResponseDto buscarPorId(Long id) {
-        return repository.findById(id)
-                .map(mapper::getDtoEmpleado)
-                .orElseThrow(() -> new RuntimeException("No existe el Bus con ID : " + id));
-    }
+
 }
