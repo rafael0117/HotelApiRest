@@ -2,13 +2,7 @@ package com.rafael0117.HotelApp.web.controller;
 
 import com.rafael0117.HotelApp.application.dto.administrador.AdministradorRequestDto;
 import com.rafael0117.HotelApp.application.dto.administrador.AdministradorResponseDto;
-import com.rafael0117.HotelApp.application.dto.empleado.EmpleadoResponseDto;
-import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaRequestDto;
-import com.rafael0117.HotelApp.application.dto.personalLimpieza.PersonalLimpiezaResponseDto;
-import com.rafael0117.HotelApp.application.dto.recepcionista.RecepcionistaRequestDto;
-import com.rafael0117.HotelApp.application.dto.recepcionista.RecepcionistaResponseDto;
 import com.rafael0117.HotelApp.application.service.IAdministradorService;
-import com.rafael0117.HotelApp.application.service.IEmpleadoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
